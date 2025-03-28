@@ -10,42 +10,23 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Check if form data is set
-if (isset($_POST['email']) && isset($_POST['password'])) {
+// Get form data
+$email = $_POST['email'];
+$password = $_POST['password'];
 
-    // Get and sanitize form data
-    $email = trim($_POST['email']);
-    $password = $_POST['password'];
+// Check user in database
+$sql = "SELECT * FROM users WHERE email='$email'";
+$result = $conn->query($sql);
 
-    if (empty($email) || empty($password)) {
-        echo "Please fill in all fields.";
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    if (password_verify($password, $row['password'])) {
+        echo "Login successful!";
     } else {
-        // Check user in database using Prepared Statement
-        $sql = "SELECT * FROM users WHERE email = ?";
-        $stmt = $conn->prepare($sql);
-        if ($stmt) {
-            $stmt->bind_param("s", $email);
-            $stmt->execute();
-            $result = $stmt->get_result();
-
-            if ($result->num_rows > 0) {
-                $row = $result->fetch_assoc();
-                if (password_verify($password, $row['password'])) {
-                    echo "✅ Login successful!";
-                } else {
-                    echo "❌ Invalid password.";
-                }
-            } else {
-                echo "❌ User not found.";
-            }
-            $stmt->close();
-        } else {
-            echo "Database query failed.";
-        }
+        echo "Invalid password.";
     }
 } else {
-    echo "Form not submitted correctly.";
+    echo "User not found.";
 }
-
 $conn->close();
 ?>
