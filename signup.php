@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root"; // Change if needed
 $password = "";
-$dbname = "agroadvisory";
+$dbname = "agrovisor";
 
 // Connect to MySQL
 $conn = new mysqli($servername, $username, $password, $dbname);
