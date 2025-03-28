@@ -10,32 +10,31 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Get form data
-$email = $_POST['email'];
-$phone = $_POST['phone'];
+// Get and sanitize form data
+$email = trim($_POST['email']);
 $password = $_POST['password'];
 
 // Validate inputs
-if (empty($email) || empty($phone) || empty($password)) {
-    die("Please fill in all fields.");
+if (empty($email) || empty($password)) {
+    die("Error: Both email and password are required.");
 }
 
-// Check user in database
-$sql = "SELECT * FROM users WHERE email = ? AND phone = ?";
+// Check user in database using Prepared Statement
+$sql = "SELECT * FROM users WHERE email = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ss", $email, $phone);
+$stmt->bind_param("s", $email);
 $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     if (password_verify($password, $row['password'])) {
-        echo "Login successful!";
+        echo "✅ Login successful!";
     } else {
-        echo "Invalid password.";
+        echo "❌ Invalid password.";
     }
 } else {
-    echo "User not found or phone number incorrect.";
+    echo "❌ User not found.";
 }
 
 $stmt->close();
