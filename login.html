@@ -27,7 +27,11 @@
         <h2 class=" mb-6 text-3xl font-bold text-green-700 mb-7 text-center">User Login</h2>
 
         <form action="login.php" method="POST" class="bg-white p-6 rounded-lg shadow-lg">
-            <label class="block mb-2 font-semibold text-gray-700">Email/Mobile number:</label>
+
+            <label class="block mb-2 font-semibold text-gray-700">Mobile number:</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required class="w-full p-2 border border-gray-300 rounded mb-4"> 
+            
+            <label class="block mb-2 font-semibold text-gray-700">Email:</label>
             <input type="email" type="tel" name="email" type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required class="w-full p-2 border border-gray-300 rounded mb-4">
                         
             <label class="block mb-2 font-semibold text-gray-700">Password:</label>
