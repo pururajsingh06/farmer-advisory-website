@@ -1,6 +1,6 @@
 <?php
 $servername = "localhost";
-$username = "root";
+$username = "root"; // Change if needed
 $password = "";
 $dbname = "agrovisor";
 
@@ -11,22 +11,16 @@ if ($conn->connect_error) {
 }
 
 // Get form data
+$name = $_POST['name'];
 $email = $_POST['email'];
-$password = $_POST['password'];
+$password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Secure password
 
-// Check user in database
-$sql = "SELECT * FROM users WHERE email='$email'";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    if (password_verify($password, $row['password'])) {
-        echo "Login successful!";
-    } else {
-        echo "Invalid password.";
-    }
+// Insert into database
+$sql = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
+if ($conn->query($sql) === TRUE) {
+    echo "Account created successfully!";
 } else {
-    echo "User not found.";
+    echo "Error: " . $sql . "<br>" . $conn->error;
 }
 $conn->close();
 ?>
