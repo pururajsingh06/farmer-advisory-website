@@ -1,32 +1,24 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "agrovisor";
+include "db_connect.php";
 
-// Connect to MySQL
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST["email"];
+    $password = $_POST["password"];
 
-// Get form data
-$email = $_POST['email'];
-$password = $_POST['password'];
+    $sql = "SELECT * FROM users WHERE email=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-// Check user in database
-$sql = "SELECT * FROM users WHERE email='$email'";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    if (password_verify($password, $row['password'])) {
-        echo "Login successful!";
+    if ($row = $result->fetch_assoc()) {
+        if (password_verify($password, $row["password"])) {
+            echo "Login successful!";
+        } else {
+            echo "Invalid credentials!";
+        }
     } else {
-        echo "Invalid password.";
+        echo "User not found!";
     }
-} else {
-    echo "User not found.";
 }
-$conn->close();
 ?>
