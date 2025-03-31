@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_param("sss", $name, $email, $hashed_password);
 
         if ($stmt->execute()) {
-            // Redirect to login page after successful signup
+            // Redirect to login page after successful registration
             header("Location: login.php");
             exit();
         } else {
@@ -41,19 +41,19 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup | Farmer Advisory</title>
+    <title>Register | Farmer Advisory</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
 
     <div class="bg-white p-6 rounded-lg shadow-lg w-96">
-        <h2 class="text-2xl font-bold text-green-700 mb-4">Sign Up</h2>
+        <h2 class="text-2xl font-bold text-green-700 mb-4">Register</h2>
 
         <?php if (isset($error)): ?>
             <p class="text-red-500"><?php echo $error; ?></p>
         <?php endif; ?>
 
-        <form action="signup.php" method="POST">
+        <form action="register.php" method="POST">
             <div class="mb-4">
                 <label class="block text-gray-700">Full Name</label>
                 <input type="text" name="name" class="w-full p-2 border rounded" required>
@@ -66,7 +66,7 @@ $conn->close();
                 <label class="block text-gray-700">Password</label>
                 <input type="password" name="password" class="w-full p-2 border rounded" required>
             </div>
-            <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded">Sign Up</button>
+            <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded">Register</button>
         </form>
 
         <p class="mt-4 text-gray-600">Already have an account? <a href="login.php" class="text-green-600">Login here</a></p>
