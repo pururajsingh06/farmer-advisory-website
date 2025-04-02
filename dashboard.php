@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-// Include database connection (if needed)
+// Include database connection
 include("db_connect.php");
 ?>
 
@@ -23,29 +23,38 @@ include("db_connect.php");
 
     <!-- Navigation Bar -->
     <nav class="bg-green-600 text-white p-4 shadow-md">
-        <div class="container mx-auto flex justify-between">
+        <div class="container mx-auto flex justify-between items-center">
             <a href="#" class="text-lg font-bold">AgroVisor</a>
-            <div>
-                <a href="crop-management.html" class="px-4 hover:underline">🌱 Crop Management</a>
-                <a href="advisory.html" class="px-4 hover:underline">📊 Advisory</a>
-                <a href="logout.php" class="px-4 bg-red-600 text-white px-3 py-1 rounded">🚪 Logout</a>
+            <button id="menu-btn" class="md:hidden block text-white focus:outline-none">
+                ☰
+            </button>
+            <div id="menu" class="hidden md:flex space-x-4">
+                <a href="crop-management.html" class="hover:underline">🌱 Crop Management</a>
+                <a href="advisory.html" class="hover:underline">📊 Advisory</a>
+                <a href="logout.php" class="bg-red-600 px-3 py-1 rounded">🚪 Logout</a>
             </div>
         </div>
     </nav>
 
     <!-- Dashboard Content -->
-    <div class="container mx-auto px-6 pt-20 pb-10">
-        <h2 class="text-3xl font-bold text-green-700 mb-6 text-center">Welcome to AgroVisor, <?php echo $_SESSION['username']; ?>! 👨‍🌾</h2>
+    <div class="container mx-auto px-4 md:px-6 pt-20 pb-10 text-center">
+        <h2 class="text-2xl md:text-3xl font-bold text-green-700 mb-6">Welcome to AgroVisor, <?php echo $_SESSION['username']; ?>! 👨‍🌾</h2>
 
-        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+        <div class="bg-white p-6 md:p-10 rounded-lg shadow-lg">
             <p class="text-gray-600">Explore the available features:</p>
-            <ul class="mt-4 text-blue-600">
-                <li><a href="crop-management.html" class="hover:underline">🌱 Crop Management</a></li>
-                <li><a href="advisory.html" class="hover:underline">📊 Agricultural Advisory</a></li>
-                <li><a href="logout.php" class="text-red-600 hover:underline">🚪 Logout</a></li>
-            </ul>
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+                <a href="crop-management.html" class="block p-4 bg-green-200 rounded hover:bg-green-300">🌱 Crop Management</a>
+                <a href="advisory.html" class="block p-4 bg-blue-200 rounded hover:bg-blue-300">📊 Agricultural Advisory</a>
+                <a href="logout.php" class="block p-4 bg-red-200 rounded hover:bg-red-300">🚪 Logout</a>
+            </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById("menu-btn").addEventListener("click", function() {
+            document.getElementById("menu").classList.toggle("hidden");
+        });
+    </script>
 
 </body>
 </html>
