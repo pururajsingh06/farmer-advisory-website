@@ -1,55 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Irrigation | Agrovisor</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body::before {
-            content: "";
-            position: absolute;
-            top: -50px;
-            left: -50px;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, #bbf7d0 20%, transparent 70%);
-            z-index: -1;
-            border-radius: 50%;
-        }
-        body::after {
-            content: "";
-            position: absolute;
-            bottom: -80px;
-            right: -80px;
-            width: 250px;
-            height: 250px;
-            background: radial-gradient(circle, #a5f3fc 20%, transparent 70%);
-            z-index: -1;
-            border-radius: 50%;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Irrigation | Agrovisor</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 ratio */
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 </head>
-<body class="relative bg-gray-100 flex items-center justify-center min-h-screen p-6 overflow-hidden">
+<body class="bg-green-50 text-gray-800 font-sans">
 
-    <div class="bg-white p-8 rounded-2xl shadow-lg max-w-lg w-full border border-green-100 relative z-10">
-       
-        <!-- Main Soil Image -->
-        <img src="https://agricultureguruji.com/wp-content/uploads/2020/10/Methods-of-Irrigation.jpg" 
-             alt="Irrigation" 
-             class="rounded-xl mb-4 h-40 w-full object-cover">
+  <!-- Hero Section -->
+  <section class="bg-blue-100 py-16 px-6 text-center">
+    <h1 class="text-5xl font-bold text-blue-800 mb-4">💧 Smart Irrigation</h1>
+    <p class="text-lg text-blue-900">Efficient irrigation ensures water conservation and improved crop yield.</p>
+  </section>
 
-             <h2 class="text-3xl font-bold text-green-700 mb-4">💧 Irrigation</h2>
-             <p class="text-gray-700 mb-3"><b>Efficient irrigation ensures water conservation and crop yield:</b></p>
-             <ul class="list-disc list-inside text-gray-600">
-                 <li>Use <b>Drip Irrigation</b> to save water and target plant roots.</li>
-                 <li>Water early morning or evening to <b>Reduce Evaporation</b>.</li>
-                 <li>Monitor <b>Soil Moisture Levels</b> for proper watering.</li>
-                 <li><b>Harvest Rainwater</b> for Sustainable Irrigation.</li>
-             </ul>
-        <div class="mt-6 text-center">
-            <a href="crop-management.html" class="text-blue-600 hover:underline">← Back to Crop Management</a>
-        </div>
+  <!-- Tips Section -->
+  <section class="container mx-auto px-6 py-12">
+    <h2 class="text-3xl font-bold text-blue-700 mb-6">Best Practices</h2>
+    <div class="bg-white rounded-xl shadow-md p-6 space-y-4">
+      <ul class="list-disc list-inside text-gray-700 text-lg space-y-2">
+        <li><strong>Drip Irrigation:</strong> Save water by delivering it directly to the roots.</li>
+        <li><strong>Water Timing:</strong> Irrigate in early mornings or evenings to reduce evaporation.</li>
+        <li><strong>Monitor Moisture:</strong> Use sensors to avoid under or overwatering.</li>
+        <li><strong>Rainwater Harvesting:</strong> Collect and store rainwater for sustainable use.</li>
+      </ul>
     </div>
+  </section>
+
+  <!-- Embedded YouTube Video -->
+  <section class="container mx-auto px-6 py-16 text-center">
+    <h2 class="text-2xl font-bold text-blue-700 mb-6">🎥 Learn More About Efficient Irrigation</h2>
+    <div class="video-wrapper max-w-6xl">
+      <iframe class="rounded-xl shadow-lg" src="https://www.youtube.com/embed/eo9VwRETkDk" title="Irrigation Techniques" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="text-center py-12">
+    <p class="text-xl mb-4">Want expert guidance on irrigation planning?</p>
+    <a href="advisory.html" class="bg-blue-700 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-800 transition">
+      Consult Agrovisor →
+    </a>
+  </section>
+
+  <!-- Back Link -->
+  <footer class="text-center pb-6">
+    <a href="crop-management.html" class="text-blue-600 hover:underline">← Back to Crop Management</a>
+  </footer>
+
 </body>
 </html>
