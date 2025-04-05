@@ -1,177 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- Navigation Bar -->
+<nav class="bg-green-600 text-white p-4 fixed w-full top-0 shadow-md z-50">
+  <div class="container mx-auto flex items-center justify-between">
+    <a href="index.html" class="text-lg font-bold">AgroAdvisory</a>
+    <!-- Hamburger Menu Button -->
+    <button id="menu-btn" class="md:hidden focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+           viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Soil Health | Agrovisor</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            max-width: 100%;
-            margin: 0 auto;
-        }
+    <!-- Menu Items -->
+    <div id="menu-items"
+         class="hidden md:flex flex-col md:flex-row absolute md:static bg-green-600 w-full md:w-auto mt-4 md:mt-0 left-0 top-full md:top-auto z-40">
+      <a href="index.html" class="block px-6 py-2 hover:underline">Home</a>
+      <a href="crop-management.html" class="block px-6 py-2 hover:underline">Crop Management</a>
+      <a href="advisory.html" class="block px-6 py-2 hover:underline">Advisory</a>
+      <a href="contact.html" class="block px-6 py-2 hover:underline">Contact</a>
+      <a href="login.html" class="block px-6 py-2 bg-white text-green-600 rounded md:ml-4">Login</a>
+    </div>
+  </div>
+</nav>
 
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
-</head>
+<!-- Fix for content hidden under fixed nav -->
+<div class="h-20"></div>
 
-<body class="bg-green-50 text-gray-800 font-sans">
+<script>
+  // Toggle mobile menu
+  const menuBtn = document.getElementById('menu-btn');
+  const menuItems = document.getElementById('menu-items');
 
-    <!-- Hero Section -->
-    <section class="bg-yellow-100 py-16 px-6 text-center">
-        <h1 class="text-5xl font-bold text-yellow-700 mb-4">🌱 Soil Health</h1>
-        <p class="text-lg text-yellow-800">Healthy soil is essential for strong crop growth. Here are some key tips:</p>
-    </section>
-
-    <!-- Tips Section -->
-    <section class="container mx-auto px-6 py-12">
-        <h2 class="text-3xl font-bold text-yellow-700 mb-10 text-center">Best Practices</h2>
-
-        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
-            <!-- Tip Card 1 -->
-            <div class="bg-white rounded-xl shadow-md p-6 flex items-start space-x-4 hover:shadow-lg transition">
-                <div class="text-3xl">🌿</div>
-                <div>
-                    <h3 class="text-lg font-semibold text-yellow-600 mb-1">Add Organic Matter</h3>
-                    <p class="text-gray-700">Use compost and manure to improve soil fertility and structure.</p>
-                </div>
-            </div>
-
-            <!-- Tip Card 2 -->
-            <div class="bg-white rounded-xl shadow-md p-6 flex items-start space-x-4 hover:shadow-lg transition">
-                <div class="text-3xl">🧪</div>
-                <div>
-                    <h3 class="text-lg font-semibold text-yellow-600 mb-1">pH Testing</h3>
-                    <p class="text-gray-700">Test pH levels and adjust with lime or sulfur if necessary.</p>
-                </div>
-            </div>
-
-            <!-- Tip Card 3 -->
-            <div class="bg-white rounded-xl shadow-md p-6 flex items-start space-x-4 hover:shadow-lg transition">
-                <div class="text-3xl">🔁</div>
-                <div>
-                    <h3 class="text-lg font-semibold text-yellow-600 mb-1">Crop Rotation</h3>
-                    <p class="text-gray-700">Rotate crops to prevent nutrient depletion and reduce pests.</p>
-                </div>
-            </div>
-
-            <!-- Tip Card 4 -->
-            <div class="bg-white rounded-xl shadow-md p-6 flex items-start space-x-4 hover:shadow-lg transition">
-                <div class="text-3xl">🛡️</div>
-                <div>
-                    <h3 class="text-lg font-semibold text-yellow-600 mb-1">Cover Crops</h3>
-                    <p class="text-gray-700">Plant cover crops like legumes to prevent erosion and add nutrients.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Educational Video Section -->
-    <section class="container mx-auto px-6 py-12 text-center">
-        <h2 class="text-2xl font-bold text-yellow-700 mb-4">🎥 Watch: Learn More About Soil Health</h2>
-        <p class="text-gray-700 mb-6">This video explains key practices to improve your soil quality effectively.</p>
-
-        <div class="max-w-4xl mx-auto rounded-xl shadow-lg overflow-hidden">
-            <div class="relative pb-[56.25%] h-0">
-                <iframe class="absolute top-0 left-0 w-full h-full rounded-xl"
-                    src="https://www.youtube.com/embed/ONJHqnGmWrw" title="Soil Health Video" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Soil Health Quiz -->
-    <section class="container mx-auto px-6 py-12">
-        <h2 class="text-2xl font-bold text-yellow-700 mb-4 text-center">🧪 Check Your Soil Health</h2>
-        <p class="text-gray-700 text-center mb-6">Answer these quick questions to assess your soil health:</p>
-
-        <div class="max-w-xl mx-auto bg-white p-6 rounded-xl shadow-md space-y-4">
-            <div>
-                <label class="font-semibold block mb-1">1. Does your soil absorb water quickly?</label>
-                <select id="q1" class="w-full border border-gray-300 p-2 rounded">
-                    <option value="">-- Select --</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                </select>
-            </div>
-
-            <div>
-                <label class="font-semibold block mb-1">2. Do you use organic matter like compost?</label>
-                <select id="q2" class="w-full border border-gray-300 p-2 rounded">
-                    <option value="">-- Select --</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                </select>
-            </div>
-
-            <div>
-                <label class="font-semibold block mb-1">3. Do you rotate crops every season?</label>
-                <select id="q3" class="w-full border border-gray-300 p-2 rounded">
-                    <option value="">-- Select --</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                </select>
-            </div>
-
-            <button onclick="checkSoilHealth()"
-                class="w-full mt-4 bg-yellow-500 text-white py-2 rounded hover:bg-yellow-600 transition">
-                Get Soil Health Result
-            </button>
-
-            <p id="quizResult" class="text-green-700 font-medium mt-4 text-center"></p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="text-center pb-6">
-        <a href="crop-management.html" class="text-blue-600 hover:underline">← Back to Crop Management</a>
-    </footer>
-
-    <!-- JS Scripts -->
-    <script>
-        function checkSoilHealth() {
-            const q1 = document.getElementById('q1').value;
-            const q2 = document.getElementById('q2').value;
-            const q3 = document.getElementById('q3').value;
-            const result = document.getElementById('quizResult');
-
-            if (!q1 || !q2 || !q3) {
-                result.textContent = "⚠️ Please answer all questions.";
-                result.className = "text-red-600 font-semibold mt-4 text-center";
-                return;
-            }
-
-            let score = 0;
-            if (q1 === 'yes') score++;
-            if (q2 === 'yes') score++;
-            if (q3 === 'yes') score++;
-
-            if (score === 3) {
-                result.textContent = "✅ Your soil health is looking great!";
-            } else if (score === 2) {
-                result.textContent = "🟡 Decent soil health, consider improving one area.";
-            } else {
-                result.textContent = "🔴 Your soil needs care. Focus on composting, drainage, and rotation.";
-            }
-
-            result.className = "text-green-700 font-semibold mt-4 text-center";
-        }
-    </script>
-
-</body>
-
-</html>
+  menuBtn.addEventListener('click', () => {
+    menuItems.classList.toggle('hidden');
+  });
+</script>
