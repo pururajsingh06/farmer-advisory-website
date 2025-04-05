@@ -5,6 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Agrovisor | Home</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+        body::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, #bbf7d0 20%, transparent 70%);
+            z-index: -1;
+            border-radius: 50%;
+        }
+        body::after {
+            content: "";
+            position: absolute;
+            bottom: -80px;
+            right: -80px;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, #a5f3fc 20%, transparent 70%);
+            z-index: -1;
+            border-radius: 50%;
+        }
+    </style>
 </head>
 <body class="bg-gray-100">
 
