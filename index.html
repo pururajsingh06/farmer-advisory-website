@@ -13,12 +13,12 @@
     <div class="container mx-auto flex justify-between items-center">
       <a href="#" class="text-xl font-bold">AgroVisor</a>
       <button id="menu-btn" class="md:hidden block focus:outline-none text-2xl">☰</button>
-      <div id="menu" class="hidden md:flex md:space-x-6 flex-col md:flex-row mt-4 md:mt-0 md:items-center">
-        <a href="index.html" class="hover:underline py-1">Home</a>
-        <a href="crop-management.html" class="hover:underline py-1">Crop Management</a>
-        <a href="advisory.html" class="hover:underline py-1">Advisory</a>
-        <a href="contact.html" class="hover:underline py-1">Contact</a>
-        <a href="login.html" class="bg-white text-green-700 px-3 py-1 rounded hover:bg-green-200 mt-2 md:mt-0">Login</a>
+      <div id="menu" class="hidden md:flex md:space-x-6 md:flex-row flex-col w-full mt-4 md:mt-0 md:w-auto bg-green-700 md:bg-transparent">
+        <a href="index.html" class="block px-4 py-2 hover:bg-green-600 md:hover:bg-transparent">Home</a>
+        <a href="crop-management.html" class="block px-4 py-2 hover:bg-green-600 md:hover:bg-transparent">Crop Management</a>
+        <a href="advisory.html" class="block px-4 py-2 hover:bg-green-600 md:hover:bg-transparent">Advisory</a>
+        <a href="contact.html" class="block px-4 py-2 hover:bg-green-600 md:hover:bg-transparent">Contact</a>
+        <a href="login.html" class="block px-4 py-2 bg-white text-green-700 rounded md:inline md:ml-4 md:mt-0 mt-2 text-center">Login</a>
       </div>
     </div>
   </nav>
@@ -54,15 +54,13 @@
     <p>&copy; 2024 AgroVisor. All rights reserved.</p>
   </footer>
 
-  <!-- Vertical Mobile Menu Script -->
+  <!-- Toggle Navbar Script -->
   <script>
     const menuBtn = document.getElementById("menu-btn");
     const menu = document.getElementById("menu");
 
     menuBtn.addEventListener("click", () => {
       menu.classList.toggle("hidden");
-      menu.classList.toggle("flex");
-      menu.classList.toggle("flex-col");
     });
   </script>
 
