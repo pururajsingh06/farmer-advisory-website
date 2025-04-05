@@ -7,6 +7,40 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100">
+  <style>
+    body::before {
+        content: "";
+        position: absolute;
+        top: -30px;
+        left: -30px;
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, #bbf7d0 20%, transparent 70%);
+        z-index: -1;
+        border-radius: 50%;
+    }
+
+    body::after {
+        content: "";
+        position: absolute;
+        bottom: -80px;
+        right: -80px;
+        width: 250px;
+        height: 250px;
+        background: radial-gradient(circle, #a5f3fc 20%, transparent 70%);
+        z-index: -1;
+        border-radius: 50%;
+    }
+
+    .card-hover {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-hover:hover {
+        transform: translateY(-8px) scale(1.03);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+</style>
 
   <!-- Navigation Bar -->
   <nav class="bg-green-600 text-white p-4 fixed w-full top-0 z-50 shadow-md">
@@ -50,19 +84,19 @@
     <h2 class="text-3xl font-bold text-center text-green-700 mb-8">Our Services</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+      <div class="bg-white p-6 rounded-lg shadow-lg text-center card-hover">
         <h3 class="text-2xl font-bold text-green-600 mb-3">🌾 Crop Management</h3>
         <p class="text-gray-700 mb-3">Learn about soil health, irrigation, and pest control for better crop yield.</p>
         <a href="crop-management.html" class="text-blue-600 hover:underline">Learn More →</a>
       </div>
 
-      <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+      <div class="bg-white p-6 rounded-lg shadow-lg text-center card-hover">
         <h3 class="text-2xl font-bold text-green-600 mb-3">📢 Agriculture Advisory</h3>
         <p class="text-gray-700 mb-3">Get real-time market prices, weather updates, and government schemes.</p>
         <a href="advisory.html" class="text-blue-600 hover:underline">Explore Advisory →</a>
       </div>
 
-      <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+      <div class="bg-white p-6 rounded-lg shadow-lg text-center card-hover">
         <h3 class="text-2xl font-bold text-green-600 mb-3">📞 Contact Us</h3>
         <p class="text-gray-700 mb-3">Need help? <br>Reach out to our team for expert assistance.</br></p>
         <a href="contact.html" class="text-blue-600 hover:underline">Get in Touch →</a>
