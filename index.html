@@ -13,14 +13,24 @@
     <h1 class="text-2xl font-bold">AgroVisor</h1>
   </div>
 
-  <!-- Separate Navigation Bar -->
+  <!-- Responsive Navigation Bar -->
   <nav class="bg-green-600 text-white p-3 shadow-md">
-    <div class="container mx-auto flex flex-col md:flex-row justify-center md:justify-center items-center md:space-x-6">
-      <a href="index.html" class="block py-2 md:py-0 hover:underline">Home</a>
-      <a href="crop-management.html" class="block py-2 md:py-0 hover:underline">Crop Management</a>
-      <a href="advisory.html" class="block py-2 md:py-0 hover:underline">Advisory</a>
-      <a href="contact.html" class="block py-2 md:py-0 hover:underline">Contact</a>
-      <a href="login.html" class="block py-2 md:py-0 bg-white text-green-700 px-3 py-1 rounded mt-2 md:mt-0">Login</a>
+    <div class="container mx-auto flex justify-between items-center">
+      <span class="font-semibold text-lg">Menu</span>
+      <button id="menu-btn" class="block md:hidden focus:outline-none">
+        <svg class="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
+          <path d="M4 5h16M4 12h16M4 19h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Menu Items (Initially hidden on mobile) -->
+    <div id="menu-items" class="hidden md:flex flex-col md:flex-row md:justify-center md:space-x-6 mt-3 md:mt-0 text-center">
+      <a href="index.html" class="block py-2 hover:underline">Home</a>
+      <a href="crop-management.html" class="block py-2 hover:underline">Crop Management</a>
+      <a href="advisory.html" class="block py-2 hover:underline">Advisory</a>
+      <a href="contact.html" class="block py-2 hover:underline">Contact</a>
+      <a href="login.html" class="block py-2 md:py-0 bg-white text-green-700 px-3 py-1 rounded mx-auto md:mx-0 md:ml-4">Login</a>
     </div>
   </nav>
 
@@ -54,6 +64,16 @@
   <footer class="text-center py-6 bg-green-700 text-white">
     <p>&copy; 2024 AgroVisor. All rights reserved.</p>
   </footer>
+
+  <!-- JavaScript for Mobile Dropdown -->
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const menuItems = document.getElementById('menu-items');
+
+    menuBtn.addEventListener('click', () => {
+      menuItems.classList.toggle('hidden');
+    });
+  </script>
 
 </body>
 </html>
