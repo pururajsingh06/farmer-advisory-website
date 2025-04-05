@@ -3,77 +3,94 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AgroVisor | Home</title>
+  <title>AgroAdvisory | Home</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 font-sans">
+<body class="bg-gray-100">
 
-  <!-- Top Bar with Logo -->
-  <div class="bg-green-700 text-white p-4 shadow-md text-center">
-    <h1 class="text-2xl font-bold">AgroVisor</h1>
-  </div>
-
-  <!-- Responsive Navigation Bar -->
-  <nav class="bg-green-600 text-white p-3 shadow-md">
+  <!-- Navigation Bar -->
+  <nav class="bg-green-600 text-white p-4 fixed w-full top-0 shadow-md z-10">
     <div class="container mx-auto flex justify-between items-center">
-      <span class="font-semibold text-lg">Menu</span>
-      <button id="menu-btn" class="block md:hidden focus:outline-none">
-        <svg class="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
-          <path d="M4 5h16M4 12h16M4 19h16"/>
+      <a href="index.html" class="text-lg font-bold">AgroAdvisory</a>
+
+      <!-- Hamburger Icon for Mobile -->
+      <button id="menu-toggle" class="md:hidden focus:outline-none">
+        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+          <path d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
       </button>
+
+      <!-- Menu for Desktop -->
+      <div class="hidden md:flex space-x-4">
+        <a href="index.html" class="hover:underline">Home</a>
+        <a href="crop-management.html" class="hover:underline">Crop Management</a>
+        <a href="advisory.html" class="hover:underline">Advisory</a>
+        <a href="contact.html" class="hover:underline">Contact</a>
+        <a href="login.html" class="bg-white text-green-600 px-3 py-1 rounded">Login</a>
+      </div>
     </div>
 
-    <!-- Menu Items (Initially hidden on mobile) -->
-    <div id="menu-items" class="hidden md:flex flex-col md:flex-row md:justify-center md:space-x-6 mt-3 md:mt-0 text-center">
-      <a href="index.html" class="block py-2 hover:underline">Home</a>
-      <a href="crop-management.html" class="block py-2 hover:underline">Crop Management</a>
-      <a href="advisory.html" class="block py-2 hover:underline">Advisory</a>
-      <a href="contact.html" class="block py-2 hover:underline">Contact</a>
-      <a href="login.html" class="block py-2 md:py-0 bg-white text-green-700 px-3 py-1 rounded mx-auto md:mx-0 md:ml-4">Login</a>
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="md:hidden hidden flex flex-col bg-green-700 mt-2 px-4 py-2 space-y-2">
+      <a href="index.html" class="hover:underline">Home</a>
+      <a href="crop-management.html" class="hover:underline">Crop Management</a>
+      <a href="advisory.html" class="hover:underline">Advisory</a>
+      <a href="contact.html" class="hover:underline">Contact</a>
+      <a href="login.html" class="bg-white text-green-600 px-3 py-1 rounded text-center">Login</a>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <header class="text-center py-20 px-6 bg-gradient-to-r from-green-200 to-green-50">
-    <h1 class="text-4xl md:text-5xl font-bold text-green-800 mb-4">Welcome to AgroVisor 👨‍🌾</h1>
-    <p class="text-lg text-gray-700 max-w-xl mx-auto">Your personalized agriculture advisory portal – for smarter, sustainable farming decisions.</p>
-    <a href="login.html" class="mt-6 inline-block bg-green-700 text-white px-6 py-3 rounded hover:bg-green-800 transition-all duration-200">Get Started</a>
-  </header>
+  <div class="container mx-auto px-6 pt-28 pb-16 text-center">
+    <h1 class="text-4xl font-bold text-green-700 mb-4">Empowering Farmers with Smart Agriculture</h1>
+    <p class="text-gray-600 text-lg mb-6">Get expert guidance on soil health, crop management, and real-time weather updates.</p>
+    <a href="advisory.html" class="bg-green-600 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-green-700">Get Started</a>
+  </div>
 
   <!-- Features Section -->
-  <section class="container mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-    <div class="bg-white p-6 rounded-lg shadow-md text-center">
-      <h3 class="text-xl font-semibold text-green-700 mb-2">🌱 Crop Management</h3>
-      <p class="text-gray-600 mb-2">Manage your crops with tips on soil, irrigation, and pests.</p>
-      <a href="crop-management.html" class="text-green-600 font-medium hover:underline">Explore</a>
-    </div>
-    <div class="bg-white p-6 rounded-lg shadow-md text-center">
-      <h3 class="text-xl font-semibold text-green-700 mb-2">📊 Advisory Services</h3>
-      <p class="text-gray-600 mb-2">Get real-time weather updates, crop prices, and schemes.</p>
-      <a href="advisory.html" class="text-green-600 font-medium hover:underline">View Advisory</a>
-    </div>
-    <div class="bg-white p-6 rounded-lg shadow-md text-center">
-      <h3 class="text-xl font-semibold text-green-700 mb-2">📞 Contact Experts</h3>
-      <p class="text-gray-600 mb-2">Get expert help by sharing your farming queries.</p>
-      <a href="contact.html" class="text-green-600 font-medium hover:underline">Contact Us</a>
-    </div>
-  </section>
+  <div class="container mx-auto px-6 pb-16">
+    <h2 class="text-3xl font-bold text-center text-green-700 mb-8">Our Services</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Crop Management -->
+      <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+        <h3 class="text-2xl font-bold text-green-600 mb-3">🌾 Crop Management</h3>
+        <p class="text-gray-700 mb-3">Learn about soil health, irrigation, and pest control for better crop yield.</p>
+        <a href="crop-management.html" class="text-blue-600 hover:underline">Learn More →</a>
+      </div>
 
-  <!-- Footer -->
-  <footer class="text-center py-6 bg-green-700 text-white">
-    <p>&copy; 2024 AgroVisor. All rights reserved.</p>
-  </footer>
+      <!-- Advisory -->
+      <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+        <h3 class="text-2xl font-bold text-green-600 mb-3">📢 Agriculture Advisory</h3>
+        <p class="text-gray-700 mb-3">Get real-time market prices, weather updates, and government schemes.</p>
+        <a href="advisory.html" class="text-blue-600 hover:underline">Explore Advisory →</a>
+      </div>
 
-  <!-- JavaScript for Mobile Dropdown -->
+      <!-- Contact -->
+      <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+        <h3 class="text-2xl font-bold text-green-600 mb-3">📞 Contact Us</h3>
+        <p class="text-gray-700 mb-3">Need help? Reach out to our team for expert assistance.</p>
+        <a href="contact.html" class="text-blue-600 hover:underline">Get in Touch →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Call-to-Action -->
+  <div class="container mx-auto px-6 pb-16 text-center">
+    <h2 class="text-2xl font-bold text-green-700 mb-4">Join Our Farming Community Today!</h2>
+    <p class="text-gray-600 mb-6">Sign up for personalized crop recommendations and expert advice.</p>
+    <a href="login.html" class="bg-green-600 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-green-700">Sign Up Now</a>
+  </div>
+
+  <!-- JavaScript for Dropdown -->
   <script>
-    const menuBtn = document.getElementById('menu-btn');
-    const menuItems = document.getElementById('menu-items');
+    const toggleBtn = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
 
-    menuBtn.addEventListener('click', () => {
-      menuItems.classList.toggle('hidden');
+    toggleBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
     });
   </script>
 
 </body>
 </html>
+
