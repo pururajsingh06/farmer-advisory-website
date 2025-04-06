@@ -10,40 +10,102 @@
 
 <body class="bg-gray-100">
 
+    <<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crop Management | Agrovisor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
     <!-- Navigation Bar -->
 <nav class="bg-green-600 text-white p-4 fixed w-full top-0 shadow-md z-50">
-    <div class="container mx-auto flex items-center justify-between">
-        <a href="index.html" class="text-2xl font-bold">🌿 Agrovisor</a>
-        <!-- Hamburger Menu Button -->
-        <button id="menu-btn" class="md:hidden focus:outline-none">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
-                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-        </button>
+  <div class="container mx-auto flex items-center justify-between flex-wrap">
+    <!-- Brand -->
+    <a href="index.html" class="text-2xl font-bold">🌿 Agrovisor</a>
 
-        <!-- Menu Items -->
-        <div id="menu-items"
-             class="hidden md:flex flex-col md:flex-row absolute md:static bg-green-600 w-full md:w-auto mt-4 md:mt-0 left-0 top-full md:top-auto z-40">
-            <a href="index.html" class="block px-6 py-2 hover:underline">Home</a>
-            <a href="crop-management.html" class="block px-6 py-2 hover:underline">Crop Management</a>
-            <a href="advisory.html" class="block px-6 py-2 hover:underline">Advisory</a>
-            <a href="contact.html" class="block px-6 py-2 hover:underline">Contact</a>
-            <a href="login.html" class="block px-6 py-2 bg-white text-green-600 rounded md:ml-4">Login</a>
-        </div>
+    <!-- Right-side Menu and Actions -->
+    <div class="flex items-center space-x-4">
+      <!-- Hamburger Menu Button (mobile only) -->
+      <button id="menu-btn" class="md:hidden focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+
+      <!-- Menu Items -->
+      <div id="menu-items"
+        class="hidden md:flex flex-col md:flex-row absolute md:static bg-green-600 w-full md:w-auto mt-4 md:mt-0 left-0 top-full md:top-auto z-40">
+        <a href="index.html" class="block px-6 py-2 hover:underline">Home</a>
+        <a href="crop-management.html" class="block px-6 py-2 hover:underline">Crop Management</a>
+        <a href="advisory.html" class="block px-6 py-2 hover:underline">Advisory</a>
+        <a href="contact.html" class="block px-6 py-2 hover:underline">Contact</a>
+        <a href="login.html" class="block px-6 py-2 bg-white text-green-600 rounded md:ml-4">Login</a>
+      </div>
+
+      <!-- Google Translate -->
+      <div id="google_translate_element" class="ml-2"></div>
     </div>
+  </div>
 </nav>
 
-<script>
-    // Toggle mobile menu
-    const menuBtn = document.getElementById('menu-btn');
-    const menuItems = document.getElementById('menu-items');
+    <!-- Page Header -->
+    <div class="container mx-auto px-6 pt-24 pb-10">
+        <h2 class="text-4xl font-bold text-green-700 mb-4 text-center">🌾 Crop Management</h2>
+        <p class="text-lg text-gray-600 text-center mb-12">Explore key areas of smart farming and sustainable
+            agriculture.</p>
 
-    menuBtn.addEventListener('click', () => {
-        menuItems.classList.toggle('hidden');
-    });
-</script>
+        <!-- Cards Grid -->
+        <div class="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <!-- Card 1 -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition border-t-4 border-green-400">
+                <div class="flex items-center mb-4">
+                    <div class="bg-green-100 text-green-700 p-4 rounded-full text-3xl mr-4 shadow-sm">🌱</div>
+                    <h3 class="text-2xl font-bold text-green-700">Soil Health</h3>
+                </div>
+                <p class="text-gray-700 mb-6">Learn about soil health management and best practices.</p>
+                <a href="soil-health.html" class="text-green-600 font-semibold hover:underline">Read
+                    More →</a>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition border-t-4 border-blue-400">
+                <div class="flex items-center mb-4">
+                    <div class="bg-blue-100 text-blue-700 p-4 rounded-full text-3xl mr-4 shadow-sm">💧</div>
+                    <h3 class="text-2xl font-bold text-blue-700">Irrigation</h3>
+                </div>
+                <p class="text-gray-700 mb-6">Discover effective irrigation techniques for better farming.</p>
+                <a href="irrigation.html" class="text-blue-600 font-semibold hover:underline">Read More
+                    →</a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition border-t-4 border-red-400">
+                <div class="flex items-center mb-4">
+                    <div class="bg-red-100 text-red-700 p-4 rounded-full text-3xl mr-4 shadow-sm">🐛</div>
+                    <h3 class="text-2xl font-bold text-red-700">Pest Control</h3>
+                </div>
+                <p class="text-gray-700 mb-6">Protect your crops from harmful pests using natural methods.</p>
+                <a href="pest-control.html" class="text-red-600 font-semibold hover:underline">Read More
+                    →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 text-center mt-12">
+        <p>&copy; 2025 Agrovisor. Empowering Agriculture through Innovation.</p>
+    </footer>
+
+</body>
+
+</html>
+
 
     <!-- Weather Section -->
     <div class="bg-white p-6 rounded-lg shadow-lg mb-6 mt-24 mx-4">
@@ -266,6 +328,25 @@
             document.getElementById('fertilizer-suggestions').innerText = suggestion;
         }
     </script>
-</body>
+    <script>
+     // Toggle mobile menu
+    const menuBtn = document.getElementById('menu-btn');
+    const menuItems = document.getElementById('menu-items');
+
+    menuBtn.addEventListener('click', () => {
+        menuItems.classList.toggle('hidden');
+    });
+</script>
+        
+  <!-- Google Translate Script -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript"
+    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+  </script>
+ </body>
 
 </html>
